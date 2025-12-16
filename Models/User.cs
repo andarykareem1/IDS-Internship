@@ -9,6 +9,7 @@ namespace WebApplication2.Models;
 public partial class User
 {
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
     [StringLength(50)]
