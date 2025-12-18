@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication2.Models;
+using WebApplication2.DTOs.Certificates;
 
 namespace WebApplication2.Controllers
 {
@@ -22,24 +23,45 @@ namespace WebApplication2.Controllers
 
         // GET: api/Certificates
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Certificate>>> GetCertificates()
+        public async Task<ActionResult<IEnumerable<CertificateDto>>> GetCertificates()
         {
-            return await _context.Certificates.ToListAsync();
+            var certificates = await _context.Certificates
+                .Select(c => new CertificateDto
+                {
+                    CertificateId = c.Id,
+                    CourseId = c.CourseId ?? 0,
+                    UserId = c.UserId ?? 0,
+                    
+                    GeneratedAt = c.GeneratedAt
+                })
+                .ToListAsync();
+
+            return Ok(certificates);
         }
+
 
         // GET: api/Certificates/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Certificate>> GetCertificate(int id)
+        public async Task<ActionResult<CertificateDto>> GetCertificate(int id)
         {
-            var certificate = await _context.Certificates.FindAsync(id);
+            var certificate = await _context.Certificates
+                .Where(c => c.Id == id)
+                .Select(c => new CertificateDto
+                {
+                    CertificateId = c.Id,
+                    CourseId = c.CourseId ?? 0,
+                    UserId = c.UserId ?? 0,
+           
+                    GeneratedAt = c.GeneratedAt
+                })
+                .FirstOrDefaultAsync();
 
             if (certificate == null)
-            {
                 return NotFound();
-            }
 
-            return certificate;
+            return Ok(certificate);
         }
+
 
         // PUT: api/Certificates/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -75,13 +97,22 @@ namespace WebApplication2.Controllers
         // POST: api/Certificates
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Certificate>> PostCertificate(Certificate certificate)
+        public async Task<ActionResult<CertificateDto>> PostCertificate(Certificate certificate)
         {
             _context.Certificates.Add(certificate);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCertificate", new { id = certificate.Id }, certificate);
+            var dto = new CertificateDto
+            {
+                CertificateId = certificate.Id,
+                CourseId = certificate.CourseId ?? 0,
+                UserId = certificate.UserId ?? 0,
+                GeneratedAt = certificate.GeneratedAt
+            };
+
+            return CreatedAtAction(nameof(GetCertificate), new { id = dto.CertificateId }, dto);
         }
+
 
         // DELETE: api/Certificates/5
         [HttpDelete("{id}")]

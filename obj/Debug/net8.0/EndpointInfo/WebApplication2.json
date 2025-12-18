@@ -18,7 +18,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Answer"
+                    "$ref": "#/components/schemas/AnswerDto"
                   }
                 }
               },
@@ -26,7 +26,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Answer"
+                    "$ref": "#/components/schemas/AnswerDto"
                   }
                 }
               },
@@ -34,7 +34,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Answer"
+                    "$ref": "#/components/schemas/AnswerDto"
                   }
                 }
               }
@@ -111,17 +111,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Answer"
+                  "$ref": "#/components/schemas/AnswerDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Answer"
+                  "$ref": "#/components/schemas/AnswerDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Answer"
+                  "$ref": "#/components/schemas/AnswerDto"
                 }
               }
             }
@@ -203,7 +203,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Category"
+                    "$ref": "#/components/schemas/CategoryDto"
                   }
                 }
               },
@@ -211,7 +211,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Category"
+                    "$ref": "#/components/schemas/CategoryDto"
                   }
                 }
               },
@@ -219,7 +219,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Category"
+                    "$ref": "#/components/schemas/CategoryDto"
                   }
                 }
               }
@@ -296,17 +296,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/CategoryDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/CategoryDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Category"
+                  "$ref": "#/components/schemas/CategoryDto"
                 }
               }
             }
@@ -388,7 +388,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Certificate"
+                    "$ref": "#/components/schemas/CertificateDto"
                   }
                 }
               },
@@ -396,7 +396,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Certificate"
+                    "$ref": "#/components/schemas/CertificateDto"
                   }
                 }
               },
@@ -404,7 +404,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Certificate"
+                    "$ref": "#/components/schemas/CertificateDto"
                   }
                 }
               }
@@ -441,17 +441,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Certificate"
+                  "$ref": "#/components/schemas/CertificateDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Certificate"
+                  "$ref": "#/components/schemas/CertificateDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Certificate"
+                  "$ref": "#/components/schemas/CertificateDto"
                 }
               }
             }
@@ -481,17 +481,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Certificate"
+                  "$ref": "#/components/schemas/CertificateDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Certificate"
+                  "$ref": "#/components/schemas/CertificateDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Certificate"
+                  "$ref": "#/components/schemas/CertificateDto"
                 }
               }
             }
@@ -758,7 +758,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/DifficultyLevel"
+                    "$ref": "#/components/schemas/DifficultyLevelDto"
                   }
                 }
               },
@@ -766,7 +766,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/DifficultyLevel"
+                    "$ref": "#/components/schemas/DifficultyLevelDto"
                   }
                 }
               },
@@ -774,7 +774,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/DifficultyLevel"
+                    "$ref": "#/components/schemas/DifficultyLevelDto"
                   }
                 }
               }
@@ -851,17 +851,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/DifficultyLevel"
+                  "$ref": "#/components/schemas/DifficultyLevelDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DifficultyLevel"
+                  "$ref": "#/components/schemas/DifficultyLevelDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DifficultyLevel"
+                  "$ref": "#/components/schemas/DifficultyLevelDto"
                 }
               }
             }
@@ -1128,7 +1128,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/LessonAttachment"
+                    "$ref": "#/components/schemas/LessonAttachmentDto"
                   }
                 }
               },
@@ -1136,7 +1136,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/LessonAttachment"
+                    "$ref": "#/components/schemas/LessonAttachmentDto"
                   }
                 }
               },
@@ -1144,7 +1144,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/LessonAttachment"
+                    "$ref": "#/components/schemas/LessonAttachmentDto"
                   }
                 }
               }
@@ -1221,17 +1221,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/LessonAttachment"
+                  "$ref": "#/components/schemas/LessonAttachmentDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LessonAttachment"
+                  "$ref": "#/components/schemas/LessonAttachmentDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/LessonAttachment"
+                  "$ref": "#/components/schemas/LessonAttachmentDto"
                 }
               }
             }
@@ -2613,7 +2613,7 @@
             "type": "string",
             "nullable": true
           },
-          "isCorrrect": {
+          "isCorrect": {
             "type": "boolean",
             "nullable": true
           },
@@ -2626,6 +2626,27 @@
               "$ref": "#/components/schemas/StudentAnswer"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AnswerDto": {
+        "type": "object",
+        "properties": {
+          "answerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "answerText": {
+            "type": "string",
+            "nullable": true
+          },
+          "isCorrect": {
+            "type": "boolean"
+          },
+          "questionId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -2655,6 +2676,20 @@
             "items": {
               "$ref": "#/components/schemas/Course"
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CategoryDto": {
+        "type": "object",
+        "properties": {
+          "categoryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "categoryName": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -2691,6 +2726,29 @@
           },
           "user": {
             "$ref": "#/components/schemas/User"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CertificateDto": {
+        "type": "object",
+        "properties": {
+          "certificateId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "courseId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "generatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2811,6 +2869,20 @@
             "items": {
               "$ref": "#/components/schemas/Course"
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DifficultyLevelDto": {
+        "type": "object",
+        "properties": {
+          "difficultyLevelId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "levelName": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -2946,10 +3018,6 @@
             "type": "string",
             "nullable": true
           },
-          "fileName": {
-            "type": "string",
-            "nullable": true
-          },
           "uploadedAt": {
             "type": "string",
             "format": "date-time",
@@ -2957,6 +3025,33 @@
           },
           "lesson": {
             "$ref": "#/components/schemas/Lesson"
+          }
+        },
+        "additionalProperties": false
+      },
+      "LessonAttachmentDto": {
+        "type": "object",
+        "properties": {
+          "lessonAttachmentId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fileUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileType": {
+            "type": "string",
+            "nullable": true
+          },
+          "lessonId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "uploadedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           }
         },
         "additionalProperties": false

@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication2.Models;
+using WebApplication2.DTOs.Categories;
+
 
 namespace WebApplication2.Controllers
 {
@@ -22,24 +24,39 @@ namespace WebApplication2.Controllers
 
         // GET: api/Categories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
+        public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCategories()
         {
-            return await _context.Categories.ToListAsync();
+            var categories = await _context.Categories
+                .Select(c => new CategoryDto
+                {
+                    CategoryId = c.Id,
+                    CategoryName = c.Name
+                })
+                .ToListAsync();
+
+            return Ok(categories);
         }
+
 
         // GET: api/Categories/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> GetCategory(int id)
+        public async Task<ActionResult<CategoryDto>> GetCategory(int id)
         {
-            var category = await _context.Categories.FindAsync(id);
+            var category = await _context.Categories
+                .Where(c => c.Id == id)
+                .Select(c => new CategoryDto
+                {
+                    CategoryId = c.Id,
+                    CategoryName = c.Name
+                })
+                .FirstOrDefaultAsync();
 
             if (category == null)
-            {
                 return NotFound();
-            }
 
-            return category;
+            return Ok(category);
         }
+
 
         // PUT: api/Categories/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

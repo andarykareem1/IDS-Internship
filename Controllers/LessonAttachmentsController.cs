@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using WebApplication2.DTOs.LessonAttachments;
 using WebApplication2.Models;
+
 
 namespace WebApplication2.Controllers
 {
@@ -22,24 +24,47 @@ namespace WebApplication2.Controllers
 
         // GET: api/LessonAttachments
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<LessonAttachment>>> GetLessonAttachments()
+        public async Task<ActionResult<IEnumerable<LessonAttachmentDto>>> GetLessonAttachments()
         {
-            return await _context.LessonAttachments.ToListAsync();
+            var attachments = await _context.LessonAttachments
+                .Select(a => new LessonAttachmentDto
+                {
+                    LessonAttachmentId = a.Id,
+                    FileUrl = a.FileUrl ?? string.Empty,
+                    FileType = a.FileType ?? string.Empty,
+                    LessonId = a.LessonId ?? 0,
+                    UploadedAt = a.UploadedAt
+                })
+                .ToListAsync();
+
+            return Ok(attachments);
         }
+
+
 
         // GET: api/LessonAttachments/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<LessonAttachment>> GetLessonAttachment(int id)
+        public async Task<ActionResult<LessonAttachmentDto>> GetLessonAttachment(int id)
         {
-            var lessonAttachment = await _context.LessonAttachments.FindAsync(id);
+            var attachment = await _context.LessonAttachments
+                .Where(a => a.Id == id)
+                .Select(a => new LessonAttachmentDto
+                {
+                    LessonAttachmentId = a.Id,
+                    FileUrl = a.FileUrl ?? string.Empty,
+                    FileType = a.FileType ?? string.Empty,
+                    LessonId = a.LessonId ?? 0,
+                    UploadedAt = a.UploadedAt
+                })
+                .FirstOrDefaultAsync();
 
-            if (lessonAttachment == null)
-            {
+            if (attachment == null)
                 return NotFound();
-            }
 
-            return lessonAttachment;
+            return Ok(attachment);
         }
+
+
 
         // PUT: api/LessonAttachments/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

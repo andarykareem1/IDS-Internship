@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebApplication2.Models.Answer, WebApplication2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebApplication2.DTOs.Answers.AnswerDto, WebApplication2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -61,7 +61,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApplication2.Models.Answer",
+        "Type": "WebApplication2.DTOs.Answers.AnswerDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -118,7 +118,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebApplication2.Models.Category, WebApplication2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebApplication2.DTOs.Categories.CategoryDto, WebApplication2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -170,7 +170,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApplication2.Models.Category",
+        "Type": "WebApplication2.DTOs.Categories.CategoryDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -227,7 +227,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebApplication2.Models.Certificate, WebApplication2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebApplication2.DTOs.Certificates.CertificateDto, WebApplication2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -253,7 +253,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApplication2.Models.Certificate",
+        "Type": "WebApplication2.DTOs.Certificates.CertificateDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -279,7 +279,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApplication2.Models.Certificate",
+        "Type": "WebApplication2.DTOs.Certificates.CertificateDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -445,7 +445,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebApplication2.Models.DifficultyLevel, WebApplication2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebApplication2.DTOs.DifficultyLevels.DifficultyLevelDto, WebApplication2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -497,7 +497,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApplication2.Models.DifficultyLevel",
+        "Type": "WebApplication2.DTOs.DifficultyLevels.DifficultyLevelDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -663,7 +663,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebApplication2.Models.LessonAttachment, WebApplication2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[WebApplication2.DTOs.LessonAttachments.LessonAttachmentDto, WebApplication2, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -715,7 +715,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "WebApplication2.Models.LessonAttachment",
+        "Type": "WebApplication2.DTOs.LessonAttachments.LessonAttachmentDto",
         "MediaTypes": [
           "text/plain",
           "application/json",

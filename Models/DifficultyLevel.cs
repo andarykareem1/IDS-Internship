@@ -11,6 +11,7 @@ public partial class DifficultyLevel
     [Key]
     public int Id { get; set; }
 
+    [Column("Name")] 
     public string? DifficultyName { get; set; }
 
     public string? Description { get; set; }

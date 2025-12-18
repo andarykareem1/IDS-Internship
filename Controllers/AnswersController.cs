@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication2.Models;
+using WebApplication2.DTOs.Answers;
+
 
 namespace WebApplication2.Controllers
 {
@@ -22,23 +24,40 @@ namespace WebApplication2.Controllers
 
         // GET: api/Answers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Answer>>> GetAnswers()
+        public async Task<ActionResult<IEnumerable<AnswerDto>>> GetAnswers()
         {
-            return await _context.Answers.ToListAsync();
+            var answers = await _context.Answers
+                .Select(a => new AnswerDto
+                {
+                    AnswerId = a.Id,
+                    AnswerText = a.AnswerText,
+                    IsCorrect = a.IsCorrect ?? false,
+                    QuestionId = a.QuestionId
+                })
+                .ToListAsync();
+
+            return Ok(answers);
         }
 
         // GET: api/Answers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Answer>> GetAnswer(int id)
+        public async Task<ActionResult<AnswerDto>> GetAnswer(int id)
         {
-            var answer = await _context.Answers.FindAsync(id);
+            var answer = await _context.Answers
+                .Where(a => a.Id == id)
+                .Select(a => new AnswerDto
+                {
+                    AnswerId = a.Id,
+                    AnswerText = a.AnswerText,
+                    IsCorrect = a.IsCorrect ?? false,
+                    QuestionId = a.QuestionId
+                })
+                .FirstOrDefaultAsync();
 
             if (answer == null)
-            {
                 return NotFound();
-            }
 
-            return answer;
+            return Ok(answer);
         }
 
         // PUT: api/Answers/5

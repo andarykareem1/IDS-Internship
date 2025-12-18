@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication2.Models;
+using WebApplication2.DTOs.DifficultyLevels;
+
 
 namespace WebApplication2.Controllers
 {
@@ -22,24 +24,39 @@ namespace WebApplication2.Controllers
 
         // GET: api/DifficultyLevels
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<DifficultyLevel>>> GetDifficultyLevels()
+        public async Task<ActionResult<IEnumerable<DifficultyLevelDto>>> GetDifficultyLevels()
         {
-            return await _context.DifficultyLevels.ToListAsync();
+            var levels = await _context.DifficultyLevels
+                .Select(d => new DifficultyLevelDto
+                {
+                    DifficultyLevelId = d.Id,
+                    LevelName = d.DifficultyName ?? string.Empty,
+                })
+                .ToListAsync();
+
+            return Ok(levels);
         }
+
 
         // GET: api/DifficultyLevels/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<DifficultyLevel>> GetDifficultyLevel(int id)
+        public async Task<ActionResult<DifficultyLevelDto>> GetDifficultyLevel(int id)
         {
-            var difficultyLevel = await _context.DifficultyLevels.FindAsync(id);
+            var level = await _context.DifficultyLevels
+                .Where(d => d.Id == id)
+                .Select(d => new DifficultyLevelDto
+                {
+                    DifficultyLevelId = d.Id,
+                    LevelName = d.DifficultyName ?? string.Empty,
+                })
+                .FirstOrDefaultAsync();
 
-            if (difficultyLevel == null)
-            {
+            if (level == null)
                 return NotFound();
-            }
 
-            return difficultyLevel;
+            return Ok(level);
         }
+
 
         // PUT: api/DifficultyLevels/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754

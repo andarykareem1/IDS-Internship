@@ -15,7 +15,8 @@ public partial class Answer
 
     public string? AnswerText { get; set; }
 
-    public bool? IsCorrrect { get; set; }
+    [Column("IsCorrect")]
+    public bool? IsCorrect { get; set; }
 
     [ForeignKey("QuestionId")]
     [InverseProperty("Answers")]

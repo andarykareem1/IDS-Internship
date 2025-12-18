@@ -17,8 +17,6 @@ public partial class LessonAttachment
 
     public string? FileType { get; set; }
 
-    public string? FileName { get; set; }
-
     [Column(TypeName = "datetime")]
     public DateTime? UploadedAt { get; set; }
 
