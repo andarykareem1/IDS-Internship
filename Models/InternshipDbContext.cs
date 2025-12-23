@@ -1,4 +1,6 @@
-﻿namespace WebApplication2.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using WebApplication2.Models;
+namespace WebApplication2.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -180,4 +182,6 @@ public partial class InternshipDbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+public DbSet<WebApplication2.Models.User> User { get; set; } = default!;
 }

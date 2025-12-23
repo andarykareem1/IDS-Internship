@@ -13,12 +13,11 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication2.Controllers
 {
-[Route("api/[controller]")]
-[ApiController]
+    [ApiController]
+    [Route("api/[controller]")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class CategoriesController : ControllerBase
-{
-
+    {
 
         private readonly InternshipDbContext _context;
 
