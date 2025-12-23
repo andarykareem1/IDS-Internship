@@ -15,9 +15,6 @@ public partial class Category
 
     public string? Description { get; set; }
 
-    [Column(TypeName = "datetime")]
-    public DateTime? CreatedAt { get; set; }
-
     [InverseProperty("Category")]
     public virtual ICollection<Course> Courses { get; set; } = new List<Course>();
 }

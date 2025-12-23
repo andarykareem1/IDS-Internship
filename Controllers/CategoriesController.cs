@@ -7,14 +7,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApplication2.Models;
 using WebApplication2.DTOs.Categories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication2.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
+[Route("api/[controller]")]
+[ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class CategoriesController : ControllerBase
-    {
+{
+
+
         private readonly InternshipDbContext _context;
 
         public CategoriesController(InternshipDbContext context)
@@ -91,14 +96,21 @@ namespace WebApplication2.Controllers
 
         // POST: api/Categories
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPost]
-        public async Task<ActionResult<Category>> PostCategory(Category category)
+        public async Task<IActionResult> PostCategory([FromBody] CreateCategoryDto dto)
         {
+            var category = new Category
+            {
+                Name = dto.CategoryName
+            };
+
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetCategory", new { id = category.Id }, category);
+            return Ok(category);
         }
+
 
         // DELETE: api/Categories/5
         [HttpDelete("{id}")]

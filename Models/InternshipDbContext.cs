@@ -1,11 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace WebApplication2.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WebApplication2.Models.Identity;
 
-namespace WebApplication2.Models;
 
-public partial class InternshipDbContext : DbContext
+
+public partial class InternshipDbContext
+    : IdentityDbContext<ApplicationUser>
 {
+
+
+
     public InternshipDbContext()
     {
     }
@@ -41,7 +47,7 @@ public partial class InternshipDbContext : DbContext
 
     public virtual DbSet<StudentAnswer> StudentAnswers { get; set; }
 
-    public virtual DbSet<User> Users { get; set; }
+    
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -49,6 +55,7 @@ public partial class InternshipDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Answer>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Answers__3214EC07270400FB");
@@ -167,12 +174,7 @@ public partial class InternshipDbContext : DbContext
                 .HasConstraintName("FK_StudentAnswers_Questions");
         });
 
-        modelBuilder.Entity<User>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC07F9E57CFD");
-
-            entity.Property(e => e.Id).ValueGeneratedNever();
-        });
+       
 
         OnModelCreatingPartial(modelBuilder);
     }

@@ -9,6 +9,8 @@ C:\Users\karou\Desktop\IDS-Internship\VS-Code\WebApplication2\WebApplication2\bi
 C:\Users\karou\Desktop\IDS-Internship\VS-Code\WebApplication2\WebApplication2\bin\Debug\net8.0\Azure.Core.dll
 C:\Users\karou\Desktop\IDS-Internship\VS-Code\WebApplication2\WebApplication2\bin\Debug\net8.0\Azure.Identity.dll
 C:\Users\karou\Desktop\IDS-Internship\VS-Code\WebApplication2\WebApplication2\bin\Debug\net8.0\Humanizer.dll
+C:\Users\karou\Desktop\IDS-Internship\VS-Code\WebApplication2\WebApplication2\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\karou\Desktop\IDS-Internship\VS-Code\WebApplication2\WebApplication2\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\karou\Desktop\IDS-Internship\VS-Code\WebApplication2\WebApplication2\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\karou\Desktop\IDS-Internship\VS-Code\WebApplication2\WebApplication2\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\karou\Desktop\IDS-Internship\VS-Code\WebApplication2\WebApplication2\bin\Debug\net8.0\Microsoft.Build.dll
